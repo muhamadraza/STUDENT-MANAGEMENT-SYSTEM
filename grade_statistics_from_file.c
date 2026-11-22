@@ -6,7 +6,7 @@ void showstatistics(void);
 void readfile(void);
 
 float* grades= NULL;
-int gradecount=0;
+int gradecount = 0;
 
 int main() {
     int choice;
@@ -43,7 +43,6 @@ void Enter(void) {
     float* temp =realloc (grades, (gradecount + numberofgrades)*sizeof(float));
     if (temp == NULL) {
         printf("Not enough memory");
-        free(grades);
         return;
     }
     grades = temp;
@@ -57,7 +56,7 @@ void Enter(void) {
             grades[gradecount] = g;
             gradecount++;
         }else {
-            printf("Grade must be between 1.o and 5.0\n");
+            printf("Grade must be between 1.0 and 5.0\n");
             i--;
         }
     }
@@ -134,4 +133,5 @@ void readfile(void) {
         printf(" Grade:%.2f\n", grades[i]);
     }
     printf("\n");
+    fclose(file);
 }
